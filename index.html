@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>他是想娶你，还是只是耗着你？3分钟关系风险自测</title>
+    <meta
+      name="description"
+      content="一个基于关系结构而不是情绪判断的风险评估测试，适用于用户自测、咨询前评估与内容引流。"
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app-bg">
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+      <div class="grain"></div>
+    </div>
+
+    <main class="app-shell">
+      <section id="start-screen" class="screen is-active">
+        <div class="eyebrow">Relationship Risk Assessment</div>
+        <h1 class="hero-title">真爱自测：他是想娶你，还是只是耗着你？</h1>
+        <p class="hero-copy">
+          这不是情绪测试，而是一套基于关系结构的风险评估工具。
+          它会从现实位置、公开承诺、边界清晰度、权力适配和自我代价五个模块，判断你当前关系的风险层级。
+        </p>
+
+        <div class="pill-grid">
+          <span class="pill">10 道题</span>
+          <span class="pill">3 分钟</span>
+          <span class="pill">真实答案</span>
+          <span class="pill">5 档结果</span>
+        </div>
+
+        <div class="intro-card">
+          <h2>作答规则</h2>
+          <ul class="intro-list">
+            <li>只看最近 3–6 个月的稳定事实。</li>
+            <li>按行为作答，不按承诺作答。</li>
+            <li>如果你经常需要替对方解释，优先选择更高风险的选项。</li>
+          </ul>
+        </div>
+
+        <button id="start-btn" class="primary-btn" type="button">开始测试</button>
+      </section>
+
+      <section id="quiz-screen" class="screen">
+        <header class="quiz-header">
+          <div class="progress-meta">
+            <span id="question-counter">01 / 10</span>
+            <span id="module-badge" class="module-badge">现实嵌入度</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </header>
+
+        <article id="question-card" class="question-card">
+          <div class="card-topline">选择最接近现实的一项</div>
+          <h2 id="question-title" class="question-title"></h2>
+          <p id="question-prompt" class="question-prompt"></p>
+          <div id="options" class="option-list"></div>
+        </article>
+
+        <footer class="quiz-footer">
+          <button id="prev-btn" class="ghost-btn" type="button">上一题</button>
+        </footer>
+      </section>
+
+      <section id="result-screen" class="screen">
+        <div class="eyebrow">Assessment Report</div>
+
+        <section id="free-result-section" class="result-section">
+          <div class="report-label">Risk Level</div>
+          <h1 id="result-type" class="result-title"></h1>
+          <p id="result-summary" class="result-summary"></p>
+
+          <div class="result-highlight">
+            <div class="highlight-item">
+              <span class="highlight-label">结构风险分</span>
+              <strong id="score-display">0 / 40</strong>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-label">原始评估分</span>
+              <strong id="raw-score-display">10 / 50</strong>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <h2>核心诊断</h2>
+            <p id="result-issue"></p>
+          </div>
+
+          <div class="result-card">
+            <h2>主风险模块</h2>
+            <div id="primary-module" class="module-identity-card"></div>
+          </div>
+
+        </section>
+
+        <section class="result-section report-layer">
+          <div class="section-header">
+            <div class="report-label">Diagnostic Report</div>
+            <h2 class="section-title">深度结构化诊断报告</h2>
+            <p class="section-copy">这部分会把你的结构分布、模块分析、重点风险和行动建议按报告顺序展开。</p>
+          </div>
+
+          <div class="pro-report-shell">
+            <div id="pro-report" class="pro-report is-locked">
+              <div class="result-card structure-overview-card">
+                <div class="card-heading-row">
+                  <div>
+                    <div class="report-label">Structure Overview</div>
+                    <h2>结构总览</h2>
+                  </div>
+                  <span id="structure-primary-tag" class="overview-primary-tag"></span>
+                </div>
+                <div id="module-bars" class="overview-list"></div>
+              </div>
+
+              <div class="result-card module-analysis-section">
+                <div class="report-label">Module Analysis</div>
+                <h2>模块深度解析</h2>
+                <div id="module-deep-cards" class="module-deep-cards"></div>
+              </div>
+
+              <div class="result-card">
+                <div class="report-label">Primary Module Deep Dive</div>
+                <h2>你当前最突出的结构风险</h2>
+                <div id="primary-module-analysis" class="analysis-block"></div>
+                <p id="result-risk" class="analysis-note"></p>
+              </div>
+
+              <div id="red-flag-box" class="result-card red-alert-card">
+                <div class="report-label report-label-danger">Red Alert Card</div>
+                <h2>红线提醒</h2>
+                <div id="risk-warning-block" class="warning-block"></div>
+                <div id="red-flag-list" class="red-alert-list"></div>
+              </div>
+
+              <div class="result-card">
+                <div class="report-label">Action Plan</div>
+                <h2>下一步行动建议</h2>
+                <ul id="result-actions" class="result-list"></ul>
+              </div>
+            </div>
+
+            <div id="unlock-panel" class="unlock-panel">
+              <div class="unlock-card">
+                <div class="unlock-kicker">Deep Report</div>
+                <h2>获取深度结构化诊断报告</h2>
+                <ul class="unlock-sell-list">
+                  <li>揭示 5 大维度致命短板</li>
+                  <li>核心红线深度剖析</li>
+                  <li>定制化止损与沟通策略</li>
+                </ul>
+
+                <label class="unlock-field">
+                  <span class="sr-only">激活码</span>
+                  <input id="unlock-input" type="text" maxlength="12" placeholder="请输入 6 位专属激活码" autocomplete="off">
+                </label>
+                <p id="unlock-feedback" class="unlock-feedback" aria-live="polite"></p>
+
+                <button id="unlock-btn" class="primary-btn unlock-btn" type="button">立即解锁</button>
+                <button id="unlock-pay-link" class="text-btn" type="button">没有激活码？点击获取</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="consult-cta" class="result-card consult-cta" hidden>
+          <h2>进一步诊断建议</h2>
+          <p id="consult-line-1"></p>
+          <p id="consult-line-2"></p>
+          <button id="consult-btn" class="primary-btn" type="button">预约 1v1 深度关系诊断</button>
+        </section>
+
+        <div class="result-actions-row">
+          <button id="restart-btn" class="ghost-btn" type="button">重新测试</button>
+          <button id="retake-btn" class="primary-btn" type="button">回到首页</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
